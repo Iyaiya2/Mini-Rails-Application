@@ -1,0 +1,45 @@
+<h1>Submit a Discount</h1>
+
+<turbo-frame id="discount_form">
+  <%= form_with model: @discount, local: false do |f| %>
+    <div>
+      <%= f.label :title %><br>
+      <%= f.text_field :title %>
+      <%= @discount.errors[:title].first %>
+    </div>
+
+    <div>
+      <%= f.label :email %><br>
+      <%= f.email_field :email %>
+      <%= @discount.errors[:email].first %>
+    </div>
+
+    <div>
+      <%= f.label :expiration_date %><br>
+      <%= f.date_field :expiration_date %>
+      <%= @discount.errors[:expiration_date].first %>
+    </div>
+
+    <div>
+      <%= f.label :description %><br>
+      <%= f.text_area :description, data: { controller: "lexy" } %>
+    </div>
+
+    <div>
+      <%= f.label :image %><br>
+      <%= f.file_field :image %>
+      <%= @discount.errors[:image].first %>
+    </div>
+
+    <%= f.submit "Save" %>
+  <% end %>
+</turbo-frame>
+
+<turbo-frame id="modal">
+  <% if notice %>
+    <div class="modal">
+      <p><%= notice %></p>
+      <%= link_to "Close", root_path, data: { turbo_frame: "_top" } %>
+    </div>
+  <% end %>
+</turbo-frame>
