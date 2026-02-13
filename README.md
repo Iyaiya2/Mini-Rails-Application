@@ -1,24 +1,3 @@
-# README
+# Discount App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Cette application Rails permet aux partenaires de soumettre des offres de réduction via un formulaire simple avec titre, email, date d’expiration, description et image. Toutes les données sont stockées dans une table `discounts`, les validations sont gérées automatiquement (présence du titre et de l’email, date d’expiration au moins 30 jours dans le futur, image validée), et les messages d’erreur ou de succès apparaissent directement grâce à Hotwire (Turbo Frames) sans utiliser de JavaScript personnalisé. Les utilisateurs peuvent voir les réductions via un endpoint API sécurisé par HTTP Basic Authentication à l’adresse `/api/partners/discounts`, qui renvoie toutes les réductions au format JSON avec les champs `name`, `email`, `expiration_date`, `description` et `image_url`. L’application utilise Ruby 3.4.8, Rails 8.1.2, le gem Lexy pour l’éditeur de texte et Shrine pour la gestion des images.
